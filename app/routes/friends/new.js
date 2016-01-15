@@ -4,16 +4,13 @@ export default Ember.Route.extend({
 	model: function() {
 		return this.store.createRecord('friend');
 	},
-	actions: {
-		save: function() {
-			console.log('+- save action bubbled up to friends route');
-
-			return false;
-		},
-		cancel: function() {
-			console.log('+- cancel action bubbled up to friends route');
-
-			return false;
+	resetController(controller, isExiting) {
+		if (isExiting) {
+			var model = controller.get('model');
+			if (model.get('isNew')) {
+				// We call DS#destroyRecord() which removes it from the store
+				model.destroyRecord();
+			}
 		}
 	}
 });

@@ -9,5 +9,5 @@ export default Ember.Route.extend({
      	 	model.save();
 			return false;
 		 }
-}
+	}
 });

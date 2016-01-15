@@ -13,7 +13,11 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       }
     },
-
+    contentSecurityPolicy: {
+          'connect-src': "'self' wss://sweltering-torch-9428.firebaseio.com",
+          'frame-src': "'self' https://sweltering-torch-9428.firebaseio.com",
+          'script-src': "'self' 'unsafe-eval' https://sweltering-torch-9428.firebaseio.com"
+        },
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
